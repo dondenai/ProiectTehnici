@@ -1,0 +1,146 @@
+.sky {
+    height: 20%;
+    color: #FFF;
+    display: block;
+}
+
+
+.demo {
+    font-family: 'Annie Use Your Telescope';
+    margin-left: 30px;
+    margin-right: 30px;
+    background-color: #C72121;
+    font-weight: bold;
+    font-size: x-large;
+    display:none;
+}
+ 
+body {
+    margin: 0;
+       background-image: url("https://image.freepik.com/free-vector/christmas-pattern-with-snow_1045-460.jpg");
+}
+.header {
+    background-image: url("https://cdn.dribbble.com/users/18903/screenshots/2357091/christmas-pattern-full.png");
+    color: #ffffff;
+    text-align: center;
+    padding: 1px;
+    font-family: 'Annie Use Your Telescope'; 
+    font-size: 36px;
+}
+
+.topnav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    overflow: hidden;
+    font-size: 28px;
+}
+
+
+.topnav a {
+    float: left;
+    display: block;
+    border: none;
+    color: #ffffff;
+    flex: 20%;
+    max-width: 25%;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+ 
+
+.topnav a:hover {
+    background-color: #C72121;
+    color: black;
+}
+ 
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 4px;
+}
+.column {
+    flex: 24%;
+    max-width: 25%;
+    padding: 0 4px;
+}
+.column img {
+    margin-top: 8px;
+    vertical-align: middle;
+}
+.scrisoare {
+    display:  flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: 'Annie Use Your Telescope';
+    font-size: 25px;
+    font-weight: bold;
+    align-items: center;
+}
+.scrisoare input,textarea {
+    width:360px;
+    padding: 12px 20px;
+    resize: vertical;
+}
+ 
+.btn {
+    background-color: #C72121;
+    color: white;
+    padding: 15px 32px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 30px;
+}
+
+#main {
+    width: 100%;
+    height: 100vh;
+    background-image: url("https://image.freepik.com/free-vector/christmas-pattern-with-snow_1045-460.jpg");
+    background-position: center;
+  }
+   
+.countdownContainer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 10%);
+    text-align: center;
+    background-color: #f6f6f6;
+    padding: 20px;
+    border-radius: 5px;
+}
+.christmas {
+    font-size: 3rem;
+    text-transform: uppercase;
+}
+.counter {
+    font-size: 2rem;
+}
+ 
+ 
+
+@media screen and (max-width: 768px) {
+    .column {
+        flex: 100%;
+        max-width: 100%;
+    }
+    .topnav a {
+        flex: 100%;
+        max-width: 100%;
+        font-size: 25px;
+    }
+    .header {
+        font-size: 20px;
+    }
+ 
+}
+ 
+@media screen and (min-width:768px) and (max-width:1280px) {
+    .column {
+        flex: 48%;
+        max-width: 100%;
+    }
+
+ 
+}
