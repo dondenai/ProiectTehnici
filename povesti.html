@@ -28,7 +28,8 @@
 
    <button class="btn" onclick="loadDoc()">Legenda bradului</button><br/>
    <div class="demo" id="pov1">
-        <div id="response1"> </div>
+        <div id="response1" contenteditable="false"> </div>
+        <button class="btn" onclick="editeaza(this)">Editeaza</button>
     </div>
 
     <button class="btn" onclick="loadDoc2()">Legenda lui Moș Crăciun</button><br/>
@@ -46,6 +47,11 @@
         <div id="response4"> </div>
         <button class="btn" onclick="sterge(this.parentNode)">Sterge povestea</button>
     </div>
+
+    <button class="btn" onclick="adauga()">Adauga poveste</button>
+    <textarea id="povestenoua" rows="10"></textarea><br>
+        
+    
 
 </div>
 

@@ -24,29 +24,35 @@
     <a href="numaratoareInversa.html"> Numărătoare inversă </a>
     <a href="povesti.html" >Povești și legende</a>
 </div>
- 
-<form id="scrisoare" action="scrisoare.php" class="scrisoare" method="GET">
+
+ <?php 
+    $numee = "";
+    $scrisoare="";
+     if(isset($_POST["letter"]) && isset($_POST["name"]) && !empty($_POST["letter"]) && !empty($_POST["name"]))
+     {
+        $numee = $_POST["name"];
+        $scrisoare = $_POST["letter"];
+     }
+    
+ ?> 
+<form id="scrisoare" action="scrisoare.php" class="scrisoare" method="POST">
     <p id="modifica">Text care va fi modificat</p>
     <p id="sterge">Text care va fi sters</p>
-    <input id="text" name="name" type="text">
+    <input id="text" name="name" type="text" value="<?=$numee?>">
     <p>Ce dorești să-i scrii Moșului?</p>
-    <textarea id="text2" name="letter" rows="10"></textarea><br>
+    <textarea id="text2" name="letter" rows="10"><?=$scrisoare?></textarea><br>
     <input type="submit" id="btn" class="btn" value="Trimite">
 </form>
 <div class="scrisoare" >
     <p id="chestie" class="demo" style="display:block" >
     <?php
-    if(isset($_GET["letter"]) && isset($_GET["name"]) && !empty($_GET["letter"]) && !empty($_GET["name"]))
-        {
-            ?>De la:<?php
-            echo $_GET["name"]; 
-            ?> 
-            <br/> Pentru: Mos Craciun <br/>          
-             <?php
-            echo $_GET["letter"];
-            unset($_GET["name"]);
-            unset($_GET["letter"]);
-        }
+    if(isset($_POST["letter"]) && isset($_POST["name"]) && !empty($_POST["letter"]) && !empty($_POST["name"]))
+    {
+        echo $numee;
+        echo $scrisoare;
+        unset($_POST["name"]);
+        unset($_POST["letter"]);
+    }
     ?>
     </p>
 </div>

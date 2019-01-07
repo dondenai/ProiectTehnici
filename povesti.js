@@ -16,9 +16,9 @@ var xhttp = new XMLHttpRequest();
          a.innerText = xhttp.responseText;
       }
     };
-xhttp.open("POST", "stuff.php", true);
+xhttp.open("GET", "stuff.php?pov=1", true);
 xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-xhttp.send("pov=2");
+xhttp.send();
 
 //////////////////////////////////////////////////////////////////////////
 function loadDoc2() {
@@ -89,4 +89,40 @@ function sterge(cont) {
     xhttp5.open("DELETE", "stuff.php?pov=5", true);
     xhttp5.send();
     
+}
+
+function editeaza (btn) {
+  var x = document.getElementById("response1");
+  if (x.getAttribute("contenteditable") == "false") {
+     x.setAttribute("contenteditable", "true");
+     btn.innerText = "Actualizeaza";
+  }
+  else
+  {
+    x.setAttribute("contenteditable", "false");
+     btn.innerText = "Editeaza";
+     var xhttp6 = new XMLHttpRequest();
+    xhttp6.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+         alert(xhttp6.responseText);
+      }
+    };
+    xhttp6.open("PUT", "stuff.php?pov=4&val="+x.innerText, true);
+    xhttp6.send();
+  }
+
+  
+   
+}
+
+function adauga() {
+  var xhttp6 = new XMLHttpRequest();
+ xhttp6.onreadystatechange = function() {
+   if (this.readyState == 4 && this.status == 200) {
+      alert(xhttp6.responseText);
+   }
+ };
+ xhttp6.open("POST", "stuff.php", true);
+ xhttp6.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+ xhttp6.send("pov=100&val="+document.getElementById("povestenoua").value);
 }

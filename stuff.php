@@ -6,9 +6,9 @@ switch($_SERVER["REQUEST_METHOD"])
     $val = $_GET["pov"];
     if($val == 1) 
     {
-        echo "Se spune că Moș Crăciun a existat demult și că era un bătrân care făcea jucării. Îi plăcea atât de mult acest lucru, încât le făcea pe tot parcursul anului, iar pe data de 25 decembrie el le vindea la un târg (le vindea foarte ieftin, pentru că oamenii nu erau prea înstăriți). Într-o zi, de Crăciun, pe drumul de întoarcere de la târg spre casă, bătrânul zărește la fereastră trei copii care nu primiseră nimic în acea zi specială.
-        Bătrânul vede că acei copii sunt trişti şi doreşte să le ofere ceva; nu mai avea nicio jucărie la el, pentru că era prima dată când le vânduse pe toate. Şi-a dorit atât de mult să le dea o jucărie în dar şi aşa, printr-o minune, pe fundul sacului a apărut una. În felul acesta, le-a făcut o bucurie copiiilor. Atunci şi-a dorit să poată să facă jucării pentru toţi copiii, chiar şi pentru cei sărmani, care nu pot să-şi cumpere jucăriile mult visate. 
-        În faţa lui a apărut o căprioară rănită. Bătrânul a bandajat-o, iar aceasta, în semn de mulţumire, a făcut să apară renii şi sania. Straiele vechi şi zdrenţuite ale bătrânului s-au schimbat în unele frumoase şi roşii. Aşa a apărut Moş Crăciun.";
+        $myfile = fopen("povesti.txt", "r") or die("Unable to open file!");
+        echo fread($myfile,filesize("povesti.txt"));
+        fclose($myfile);
        
     }
     else
@@ -33,6 +33,12 @@ switch($_SERVER["REQUEST_METHOD"])
           - Nu, i-a raspuns Dumnezeu vantului.Bradului sa nu-i faci nimic, caci a fost bun cu biata rândunică. De el sa nu te atingi!
           Si de atunci, dragii mei, toti copacii isi pierd haina lor de frunze si flori, doar bradul isi pastreaza totdeauna frunzele verzi, fie vara, fie iarna.";
     }
+    if($val == 100) {
+        $myfile = fopen("povesti.txt", "w");
+        fwrite($myfile, $_POST["val"]);
+        fclose($myfile);
+        echo 'scris';
+    }
     break;
 
     case "PUT":
@@ -49,8 +55,14 @@ switch($_SERVER["REQUEST_METHOD"])
         Nicolae a fost foarte jenat şi l-a rugat pe tatăl fetelor să nu spună celorlalţi că el e persoana care îi ajută cu tot ce au nevoie. Tatăl a promis să păstreze secretul, însă a fost atât de impresionat de gestul lui Nicolae încât, oricât a încercat, nu şi-a respectat promisiunea şi a dezvăluit secretul. Aşa că, în scurt timp, toţi locuitorii oraşului ştiau că Nicolae e responsabil de toate minunile care s-au întâmplat în oraşul lor.
         Legenda lui Moş Nicolae spune că, de atunci, în fiecare an, în noaptea de 5 spre 6 decembrie, Nicolae îi recompensează pe toţi copiii care au fost cuminţi de-a lungul întregului an, lăsându-le în ghetuţe daruri. Nicolae este în continuare amintit pentru bunătatea, generozitatea și dragostea lui nemărginită pentru copii. În onoarea sa, în decembrie, de Sfântul Nicolae (6 decembrie), în multe țări din întreaga lume se oferă copiilor pungi cu cadouri.";
     }
+    
+    if($val == 4) {
+        $myfile = fopen("povesti.txt", "w");
+        fwrite($myfile, $_GET["val"]);
+        fclose($myfile);
+        echo 'scris';
+    }
     break;
-
     case "DELETE":
 
     $val = $_GET["pov"];
@@ -60,4 +72,9 @@ switch($_SERVER["REQUEST_METHOD"])
     }
     break;
 }
+/*
+Se spune că Moș Crăciun a existat demult și că era un bătrân care făcea jucării. Îi plăcea atât de mult acest lucru, încât le făcea pe tot parcursul anului, iar pe data de 25 decembrie el le vindea la un târg (le vindea foarte ieftin, pentru că oamenii nu erau prea înstăriți). Într-o zi, de Crăciun, pe drumul de întoarcere de la târg spre casă, bătrânul zărește la fereastră trei copii care nu primiseră nimic în acea zi specială.
+        Bătrânul vede că acei copii sunt trişti şi doreşte să le ofere ceva; nu mai avea nicio jucărie la el, pentru că era prima dată când le vânduse pe toate. Şi-a dorit atât de mult să le dea o jucărie în dar şi aşa, printr-o minune, pe fundul sacului a apărut una. În felul acesta, le-a făcut o bucurie copiiilor. Atunci şi-a dorit să poată să facă jucării pentru toţi copiii, chiar şi pentru cei sărmani, care nu pot să-şi cumpere jucăriile mult visate. 
+        În faţa lui a apărut o căprioară rănită. Bătrânul a bandajat-o, iar aceasta, în semn de mulţumire, a făcut să apară renii şi sania. Straiele vechi şi zdrenţuite ale bătrânului s-au schimbat în unele frumoase şi roşii. Aşa a apărut Moş Crăciun.
+*/
 ?>
